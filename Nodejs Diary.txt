@@ -1,0 +1,30 @@
+bikin nodejs web dengan express.
+-masuk ke folder project
+-install express
+	npm isntall -g express
+-install express generator
+	npm install -g express-generator
+-bikin project folder dan install semua project
+	express nama_project
+-tambahkan dipendensi lain ke file package.json, misalnya mau pakai nodemailer, tambahkan "nodemailer": "*"
+-masuk ke direktori project
+	cd nama_project
+-install semua dipendensi yang telah ditambah
+	npm install
+-test running project
+	npm start
+
+Untuk membuat routing, langkah2:
+-buat file sesuai dengan nama route di folder routes, misalnya: about.js
+-buat halaman view di folder view, misalnya about.jade
+-masuk ke file app.js
+-tambahkan variabel route ke app.js
+	var about = require('./routes/about'); <-- lokasi file about.js yang nanti terhubung ke view (file .jade)
+-tambahkan app.use('/about', about); <-- about yang diluar dari variabel yang dibuat.
+-di file routes/about.js (file buat routing) bisa diatur apa yang akan dibuat, misalnya ingin menampilkan file about.jade:
+	
+	router.get('/', function(req, res, next) {
+		res.render('about', {title : 'About'});
+	});
+-jangan lupa tambahkan variabel/modul route express:
+	var router = express.Router();
